@@ -6,24 +6,25 @@ using namespace std;
 class Solution {
  public:
   bool isPalindrome(int x) {
-    if (x < 0) {
+    if (x < 0)
       return false;
-    } else if (x < 10) {
+    else if (x < 10)
       return true;
+
+    string numString = to_string(x);
+    string::iterator left = numString.begin();
+    // string::iterator.end() points to the position after the last character
+    string::iterator right = numString.end() - 1;
+
+    while (left < right) {
+      if (*left != *right) {
+        return false;
+      }
+      left++;
+      right--;
     }
 
-    return testPalindrome(std::to_string(x), 0, std::to_string(x).size() - 1);
-  }
-
-  bool testPalindrome(string palindrome, size_t left, size_t right) {
-    if (left >= right) {
-      return true;
-    }
-    if (palindrome[left] != palindrome[right]) {
-      return false;
-    }
-
-    return testPalindrome(palindrome, left + 1, right - 1);
+    return true;
   }
 };
 
