@@ -12,7 +12,7 @@ class Solution {
       return true;
     }
 
-    return testPalindrome(std::to_string(x), 0, std::to_string(x).size() - 1);
+    return testPalindrome(to_string(x), 0, std::to_string(x).size() - 1);
   }
 
   bool testPalindrome(string palindrome, size_t left, size_t right) {

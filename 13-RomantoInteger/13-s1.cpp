@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <unordered_map>
 
 using namespace std;
@@ -15,6 +14,17 @@ class Solution {
     roman_to_int['C'] = 100;
     roman_to_int['D'] = 500;
     roman_to_int['M'] = 1000;
+
+    // Another way
+    // unordered_map<char, int> romanValues = {
+    //     {'I', 1},
+    //     {'V', 5},
+    //     {'X', 10},
+    //     {'L', 50},
+    //     {'C', 100},
+    //     {'D', 500},
+    //     {'M', 1000}
+    // };
 
     int sum;
     sum = roman_to_int[s[0]];
