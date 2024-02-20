@@ -10,12 +10,6 @@ class Solution {
     else if (x < 10)
       return true;
 
-    if (x < 0) {
-      return 0;
-    } else if (x < 10) {
-      return 1;
-    }
-
     long temp = x;
     long reversed = 0;
     int dig;
