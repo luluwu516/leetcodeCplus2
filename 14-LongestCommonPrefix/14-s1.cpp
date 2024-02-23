@@ -13,7 +13,6 @@ class Solution {
     }
 
     string prefix = strs[0];
-    cout << "initial prefix: " << prefix << endl;
 
     for (int i = 1; i < strs.size(); i++) {
       int count = 0;
