@@ -7,6 +7,10 @@ using namespace std;
 class Solution {
  public:
   bool isValid(string s) {
+    if (s.length() % 2 == 1) {
+      return false;
+    }
+
     vector<char> v;
 
     for (char c : s) {

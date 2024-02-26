@@ -8,6 +8,10 @@ using namespace std;
 class Solution {
  public:
   bool isValid(string s) {
+    if (s.length() % 2 == 1) {
+      return false;
+    }
+
     map<char, char> parentheses;
     map<char, char>::iterator it;
     vector<char> stack;
