@@ -39,12 +39,12 @@ int main() {
   uniqueNumCount = s.removeDuplicates(nums);
 
   // output
-  printf("\n\nResult:\n");
-  printf("%d unique number(s). nums = [", uniqueNumCount);
+  cout << "\n\nResult:\n";
+  cout << uniqueNumCount << " unique number(s). nums = [";
   for (int i = 0; i < uniqueNumCount; i++) {
-    printf("%d, ", nums[i]);
+    cout << nums[i];
   }
-  printf("]\n");
+  cout << "]\n";
 
   return 0;
 }
