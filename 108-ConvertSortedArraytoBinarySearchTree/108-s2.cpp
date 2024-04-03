@@ -19,20 +19,17 @@ class Solution {
     if (nums.empty()) {
       return nullptr;
     }
+    return helper(nums, 0, nums.size() - 1);
+  }
 
-    int mid = nums.size() / 2;
-    vector<int> left, right;
-    for (int i = 0; i < mid; i++) {
-      left.push_back(nums[i]);
+  TreeNode *helper(vector<int> &nums, int left, int right) {
+    if (left > right) {
+      return nullptr;
     }
-
-    for (int i = mid + 1; i < nums.size(); i++) {
-      right.push_back(nums[i]);
-    }
-
+    int mid = left + (right - left) / 2;
     TreeNode *root = new TreeNode(nums[mid]);
-    root->left = sortedArrayToBST(left);
-    root->right = sortedArrayToBST(right);
+    root->left = helper(nums, left, mid - 1);
+    root->right = helper(nums, mid + 1, right);
 
     return root;
   }
@@ -48,20 +45,7 @@ void printBT(const string &prefix, const TreeNode *node, bool isLeft) {
   }
 }
 
-void printBT(const TreeNode *node) {
-  if (node) {
-    printBT("", node, false);
-  } else {
-    cout << "Tree is empty." << endl;
-  }
-}
-
-//  -2, 2, 5, 7, 11, 13, 19, 21, 99
-// [11,2,19,-2,5,13,21,null,null,null,7,null,null,null,99] or
-// [11,5,21,2,7,19,99,-2,null,null,null,13]
-
-// -10, -5, -3, 0, 5, 8, 9
-// [0,-5,8,-10,-3,5,9]
+void printBT(const TreeNode *node) { printBT("", node, false); }
 
 int main() {
   // declaration
