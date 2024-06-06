@@ -1,39 +1,35 @@
 #include <iostream>
-#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 class Solution {
  public:
   bool isIsomorphic(string s, string t) {
-    if (s.length() != t.length()) {
-      return false;
-    }
-    vector<char> s_index, t_index;
+    unordered_map<char, char> mapS, mapT;
 
-    for (char c : s) {
-      s_index.push_back(findIndex(s, c));
-    }
-    for (char c : t) {
-      t_index.push_back(findIndex(t, c));
-    }
+    for (int i = 0; i < s.size(); ++i) {
+      char charS = s[i];
+      char charT = t[i];
 
-    for (int i = 0; i < s.length(); i++) {
-      if (s_index[i] != t_index[i]) {
-        return false;
+      if (mapS.find(charS) == mapS.end()) {
+        mapS[charS] = charT;
+      } else {
+        if (mapS[charS] != charT) {
+          return false;
+        }
+      }
+
+      if (mapT.find(charT) == mapT.end()) {
+        mapT[charT] = charS;
+      } else {
+        if (mapT[charT] != charS) {
+          return false;
+        }
       }
     }
 
     return true;
-  }
-
-  int findIndex(string s, char c) {
-    for (int i = 0; i < s.length(); i++) {
-      if (s[i] == c) {
-        return i;
-      }
-    }
-    return -1;
   }
 };
 

@@ -6,34 +6,20 @@ using namespace std;
 class Solution {
  public:
   bool isIsomorphic(string s, string t) {
-    if (s.length() != t.length()) {
-      return false;
-    }
-    vector<char> s_index, t_index;
+    int len = s.length();
 
-    for (char c : s) {
-      s_index.push_back(findIndex(s, c));
-    }
-    for (char c : t) {
-      t_index.push_back(findIndex(t, c));
-    }
+    vector<int> indexS(5000, 0);
+    vector<int> indexT(5000, 0);
 
-    for (int i = 0; i < s.length(); i++) {
-      if (s_index[i] != t_index[i]) {
+    for (int i = 0; i < len; i++) {
+      if (indexS[s[i]] != indexT[t[i]]) {
         return false;
       }
+      indexS[s[i]] = i + 1;
+      indexT[t[i]] = i + 1;
     }
 
     return true;
-  }
-
-  int findIndex(string s, char c) {
-    for (int i = 0; i < s.length(); i++) {
-      if (s[i] == c) {
-        return i;
-      }
-    }
-    return -1;
   }
 };
 
