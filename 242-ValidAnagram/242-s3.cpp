@@ -43,7 +43,7 @@ int main() {
 
   // output
   cout << "\nResult:\n";
-  cout << "The string is " << (res ? "anagram." : "not anagram.") << "\n\n";
+  cout << "The strings are " << (res ? "anagram" : "not anagram") << "\n\n";
 
   return 0;
 }
